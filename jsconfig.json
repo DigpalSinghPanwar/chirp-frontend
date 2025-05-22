@@ -1,0 +1,14 @@
+{ 
+    "compilerOptions": {
+        "module": "es6",
+        "target": "es6",
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}
