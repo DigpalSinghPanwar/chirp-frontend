@@ -17,7 +17,7 @@ const AuthLayout = ({children}) => {
 //   }
   return (
     <div className='flex  bg-slate-400 bg-gradient-to-br from-slate-700 to-slate-400'>
-    <div className='w-[12rem]'>
+    <div className='w-[16rem]'>
 
     <SidebarProvider  style={{
     "--sidebar-width": "16rem",
@@ -31,7 +31,7 @@ const AuthLayout = ({children}) => {
       </main>
     </SidebarProvider>
     </div>
-    <div className='w-[calc(100%-12rem)]'>
+    <div className='w-[calc(100%-16rem)]'>
     {/* <nav className='flex justify-between items-center m-0 py-4 px-8 shadow-2xl '> 
         <div className='flex'>
         <img className='justify-end cursor-pointer' src='' alt='logo' />  
@@ -40,8 +40,8 @@ const AuthLayout = ({children}) => {
         {/* <p className='text-xl cursor-pointer text-amber-100 font-bold'>Login</p> */}
         {/* <SignIn /> */}
         {/* </nav> */}
-        <div className='m-4'>
-        <Outlet className='w-[calc(100%-12rem)] m-4' />
+        <div className='p-4'>
+        <Outlet className='w-[calc(100%-16rem)] ' />
         </div>
     </div>
     </div>

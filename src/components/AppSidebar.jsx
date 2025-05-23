@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Home, Inbox, Bell, BarChart, User, PowerOff } from "lucide-react"
 
 import {
   Sidebar,
@@ -14,52 +14,57 @@ import {
 // Menu items.
 const items = [
   {
-    title: "Home",
+    title: "Dashboard",
     url: "#",
     icon: Home,
   },
   {
-    title: "Inbox",
+    title: "Messages",
     url: "#",
     icon: Inbox,
   },
   {
-    title: "Calendar",
+    title: "Notifications",
     url: "#",
-    icon: Calendar,
+    icon: Bell,
   },
   {
-    title: "Search",
+    title: "Analytics",
     url: "#",
-    icon: Search,
+    icon: BarChart,
   },
   {
-    title: "Settings",
+    title: "Profile",
     url: "#",
-    icon: Settings,
+    icon: User,
+  },
+  {
+    title: "Logout",
+    url: "#",
+    icon: PowerOff,
   },
 ]
 
 export function AppSidebar() {
   return (
-    <Sidebar className="w-[12rem] text-amber-100">
+    <Sidebar className="w-[16rem] text-amber-100 ">
     {/* <Sidebar className="w-[12rem]"> */}
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="my-2">
           <div className='flex'>
-        <img className='justify-end cursor-pointer' src='' alt='logo' />  
+        <img className='justify-end cursor-pointer w-8 h-8  rounded-full ' src="https://github.com/shadcn.png" alt='logo' />  
         <p className='text-xl cursor-pointer text-amber-100 font-bold'>Chirp</p>
         </div>
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu >
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton className="text-lg" asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                  <SidebarMenuButton className="text-lg cursor-default" asChild>
+                    <a href={item.url} >
+                      <item.icon className="cursor-pointer" />
+                      <span className="cursor-pointer">{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
