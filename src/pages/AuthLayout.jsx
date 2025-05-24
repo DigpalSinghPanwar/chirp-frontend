@@ -40,7 +40,7 @@ const AuthLayout = ({children}) => {
         {/* <p className='text-xl cursor-pointer text-amber-100 font-bold'>Login</p> */}
         {/* <SignIn /> */}
         {/* </nav> */}
-        <div className='p-4'>
+        <div className='py-4 px-10'>
         <Outlet className='w-[calc(100%-16rem)] ' />
         </div>
     </div>

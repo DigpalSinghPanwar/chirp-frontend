@@ -13,7 +13,7 @@ import {
 
 const ReadTweet = () => {
   return (
-    <Card className="w-[600px] ">
+    <Card className="w-[600px] my-4">
       <CardHeader className='flex  items-center'>
       <img className='justify-end cursor-pointer w-8 h-8 rounded-full ' src="https://github.com/shadcn.png" alt='logo' />  
         <CardTitle>Digpal Singh</CardTitle>
@@ -28,7 +28,7 @@ const ReadTweet = () => {
         <div className="flex justify-around w-36">
         <div className='flex'>
           <Heart className='cursor-pointer'/>
-          <p className='ml-2 '>0</p>
+          <p className='ml-2 '>3</p>
         </div>
         <div className='flex'>
         <HeartHandshake className='cursor-not-allowed'/>
@@ -37,7 +37,7 @@ const ReadTweet = () => {
 
         <div className='flex'>
         <MessageCircle className='cursor-pointer'/>
-        <p className='ml-2'>0</p>
+        <p className='ml-2'>7</p>
         </div>
         </div>
       </CardFooter>
