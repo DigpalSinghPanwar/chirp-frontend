@@ -1,4 +1,5 @@
 import { Home, Inbox, Bell, BarChart, User, PowerOff } from "lucide-react"
+import chirpImage from "../assets/chirp.png"
 
 import {
   Sidebar,
@@ -53,7 +54,7 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel className="my-2">
           <div className='flex'>
-        <img className='justify-end cursor-pointer w-8 h-8  rounded-full ' src="https://github.com/shadcn.png" alt='logo' />  
+        <img className='justify-end cursor-pointer w-8 h-8' src={chirpImage} alt='logo' />  
         <p className='text-xl cursor-pointer text-amber-100 font-bold'>Chirp</p>
         </div>
           </SidebarGroupLabel>

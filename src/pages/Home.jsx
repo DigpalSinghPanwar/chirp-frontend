@@ -1,18 +1,19 @@
 import { SignIn } from '../components/SignIn'
+import chirpImage from "../assets/chirp.png"
 import React from 'react'
 
 const Home = () => {
   return (
-    <div className='min-h-[120vh] flex flex-col bg-slate-800 bg-gradient-to-br from-slate-700 to-slate-400'>
-    <nav className='flex justify-between items-center m-0 py-4 px-8 shadow-2xl '> 
+    <div className='min-h-[120vh] relative flex flex-col bg-slate-800 bg-gradient-to-br from-slate-700 to-slate-400'>
+    <nav className='flex justify-between items-center m-0 py-4 px-8 shadow-2xl fixed top-0 z-50 w-full'> 
     <div className='flex'>
-    <img className='justify-end cursor-pointer' src='' alt='logo' />  
-    <p className='text-xl cursor-pointer text-amber-100 font-bold'>Chirp</p>
+    <img className='justify-end cursor-pointer w-8 h-8' src={chirpImage} alt='logo' />  
+    {/* <p className='text-xl cursor-pointer text-amber-100 font-bold'>Chirp</p> */}
     </div>
     {/* <p className='text-xl cursor-pointer text-amber-100 font-bold'>Login</p> */}
     <SignIn />
     </nav>
-    <div className='flex-1 flex flex-col items-center justify-center min-h-8/12  '> 
+    <div className='flex-1 flex flex-col items-center justify-center min-h-8/12'> 
     <div className='flex flex-col items-center my-10 '>
      <h2 className='font-bold text-6xl text-amber-100'>Chirp</h2>
      <h2 className='font-bold text-6xl text-amber-100'>Social Media</h2>
