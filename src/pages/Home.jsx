@@ -1,8 +1,17 @@
+import React, { useEffect } from 'react'
 import { SignIn } from '../components/SignIn'
 import chirpImage from "../assets/chirp.png"
-import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
 const Home = () => {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+          const token = localStorage.getItem('auth_token')
+          if (token) {
+              navigate('/dashboard')
+          }
+      }, [])
+  console.log("home")
   return (
     <div className='min-h-[120vh] relative flex flex-col bg-slate-800 bg-gradient-to-br from-slate-700 to-slate-400'>
     <nav className='flex justify-between items-center m-0 py-4 px-8 shadow-2xl fixed top-0 z-50 w-full'> 

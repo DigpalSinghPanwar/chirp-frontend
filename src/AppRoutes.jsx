@@ -30,11 +30,11 @@ let router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    Component: AuthLayout,
+    Component:  AuthLayout,
     children: [
-      { index: true, Component: Dashboard },
+      { index: true, Component:  Dashboard },
       // { path: "login", Component: Login },
-      // { path: "register", Component: Register },
+      // { path: "register", Component: Register }, 
     ],
   },
 ]);

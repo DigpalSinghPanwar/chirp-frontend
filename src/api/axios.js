@@ -7,6 +7,13 @@ const axiosInstance = axios.create({
   },
 });
 
+const axiosLoginInstance = axios.create({
+  baseURL: 'http://localhost:8000/api/v1',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
 // ✅ Request Interceptor
 axiosInstance.interceptors.request.use(
   (config) => {
@@ -32,4 +39,4 @@ axiosInstance.interceptors.response.use(
   }
 );
 
-export default axiosInstance;
+export {axiosInstance, axiosLoginInstance}; 
