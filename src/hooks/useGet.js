@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import axios from '../api/axios';
+import {axiosInstance} from '../api/axios';
 
 export default function useGet(url, dependencies = []) {
-  const [data, setData] = useState(null);
+  const [res, setRes] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -10,9 +10,9 @@ export default function useGet(url, dependencies = []) {
     let isMounted = true;
     setLoading(true);
 
-    axios.get(url)
+    axiosInstance.get(url)
       .then(res => {
-        if (isMounted) setData(res.data);
+        if (isMounted) setRes(res);
       })
       .catch(err => {
         if (isMounted) setError(err);
@@ -24,5 +24,5 @@ export default function useGet(url, dependencies = []) {
     return () => { isMounted = false; };
   }, dependencies); // add dependencies like search params if needed
 
-  return { data, loading, error };
+  return { res, loading, error };
 }

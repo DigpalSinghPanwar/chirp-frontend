@@ -11,36 +11,43 @@ import {
 
 
 
-const ReadTweet = () => {
+const ReadTweet = ({tweet}) => {
+  // console.log(tweet)
+  // const   {username, about, createdAt, description, commentCount, likeCount} = tweet
+  const dateFromString = new Date(tweet?.createdAt)
+  const formattedDate = dateFromString.toLocaleDateString()
+  // console.log(dateFromString)
+  // console.log(formattedDate)
   return (
+    // <h1>hi</h1>
     <Card className="w-[600px] my-4">
-      <CardHeader className='flex  items-center'>
-      <img className='justify-end cursor-pointer w-8 h-8 rounded-full ' src="https://github.com/shadcn.png" alt='logo' />  
-        <CardTitle>Digpal Singh</CardTitle>
-        <CardDescription>1h ago</CardDescription>
-      </CardHeader>
-      <CardContent>
-          <div className="grid w-full items-center gap-4">
-           <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-          </div>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <div className="flex justify-around w-36">
-        <div className='flex'>
-          <Heart className='cursor-pointer'/>
-          <p className='ml-2 '>3</p>
+    <CardHeader className='flex  items-center'>
+    <img className='justify-end cursor-pointer w-8 h-8 rounded-full ' src="https://github.com/shadcn.png" alt='logo' />  
+      <CardTitle>{tweet?.username}</CardTitle>
+      <CardDescription>{formattedDate}</CardDescription>
+    </CardHeader>
+    <CardContent>
+        <div className="grid w-full items-center gap-4">
+         <p>{tweet?.description}</p>
         </div>
-        <div className='flex'>
-        <HeartHandshake className='cursor-not-allowed'/>
-        <p className='ml-2'>0</p>
-        </div>
+    </CardContent>
+    <CardFooter className="flex justify-between">
+    <div className="flex justify-around w-36">
+    <div className='flex'>
+      <Heart className='cursor-pointer'/>
+      <p className='ml-2 '>{tweet?.likeCount}</p>
+    </div>
+    <div className='flex'>
+    <HeartHandshake className='cursor-not-allowed'/>
+    <p className='ml-2'>{tweet?.likeCount}</p>
+    </div>
 
-        <div className='flex'>
+    <div className='flex'>
         <MessageCircle className='cursor-pointer'/>
-        <p className='ml-2'>7</p>
-        </div>
-        </div>
-      </CardFooter>
+    <p className='ml-2'>{tweet?.commentCount}</p>
+    </div>
+    </div>
+    </CardFooter>
     </Card>
   )
 }
