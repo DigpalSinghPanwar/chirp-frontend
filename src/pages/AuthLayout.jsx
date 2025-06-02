@@ -4,6 +4,8 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from '@/components/AppSidebar';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import RulesInfo from '@/components/RulesInfo';
+
 
 const isAuthenticated = () => {
   // Your logic here: check localStorage/token/auth context
@@ -42,7 +44,11 @@ const AuthLayout = ({children}) => {
         {/* </nav> */}
         <div className='py-4 px-10'>
         <ProtectedRoute>
+        <div className='flex'>
+
         <Outlet className='w-[calc(100%-16rem)] ' />
+        <RulesInfo/>
+        </div>
         </ProtectedRoute>
         </div>
     </div>

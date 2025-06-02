@@ -12,46 +12,42 @@ import {
 
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select"
+import { useForm } from "react-hook-form"
+import {axiosInstance} from "../api/axios"
 
-const CreateTweet = () => {
-  return (
+const CreateTweet = ({setReloadTweet, setLoading}) => {
+      const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  
+    const onSubmit = (data) => {
+      setLoading(true)
+      axiosInstance.post('/tweet', data)
+        .then((res) => {
+            reset()
+            setReloadTweet(true)
+            setLoading(false) 
+        })
+        .catch((err) => {
+            setLoading(false)
+            setReloadTweet(false)
+        })
+    }
+    return (
     <Card className="w-[600px] ">
       {/* <CardHeader>
         <CardTitle>What is on your mind?</CardTitle>
         <CardDescription>Share your thoughts with the world.</CardDescription>
       </CardHeader> */}
+        <form onSubmit={handleSubmit(onSubmit)}>
       <CardContent>
-        <form>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Share your thoughts with the world.</Label>
-              <Textarea id="name" placeholder="What is on your mind" />
+              <Label htmlFor="description">Share your thoughts with the world.</Label>
+              <Textarea id="description" placeholder="What is on your mind" {...register("description", { required: true}, {minLength: { value: 1} }  , {maxLength: { value: 280} } ) } />
             </div>
-            {/* <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Framework</Label>
-              <Select>
-                <SelectTrigger id="framework">
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                  <SelectItem value="next">Next.js</SelectItem>
-                  <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                  <SelectItem value="astro">Astro</SelectItem>
-                  <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                </SelectContent>
-              </Select>
-            </div> */}
+            {errors.description && <p className="text-red-500">Tweets must be between 1 and 280 characters.</p>}
           </div>
-        </form>
       </CardContent>
-      <CardFooter className="flex justify-between">
+      <CardFooter className="flex justify-between ">
         {/* <Button variant="outline">Cancel</Button> */}
         <div className="flex justify-around w-36">
         <Image className='cursor-not-allowed'/>
@@ -59,8 +55,9 @@ const CreateTweet = () => {
         <Calendar className='cursor-not-allowed'/>
         <MapPin className='cursor-not-allowed'/>
         </div>
-        <Button className='bg-slate-500 hover:bg-black cursor-not-allowed'>Post</Button>
+        <Button type="submit" className='bg-slate-500 mt-2 focus:outline-gray-500 hover:bg-black cursor-pointer'>Post</Button>
       </CardFooter>
+        </form>
     </Card>
   )
 }

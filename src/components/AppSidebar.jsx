@@ -11,12 +11,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { Link } from "react-router-dom"
 
 // Menu items.
 const items = [
   {
     title: "Dashboard",
-    url: "#",
+    url: "/dashboard",
     icon: Home,
   },
   {
@@ -31,18 +32,22 @@ const items = [
   },
   {
     title: "Analytics",
-    url: "#",
+    url: "/analytics",
     icon: BarChart,
   },
   {
     title: "Profile",
-    url: "#",
+    url: "/profile",
     icon: User,
   },
   {
     title: "Logout",
-    url: "#",
+    url: "/",
     icon: PowerOff,
+    onClick: () => {
+      localStorage.removeItem("auth_token");
+      window.location.href = "/";
+    },
   },
 ]
 
@@ -63,10 +68,10 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton className="text-lg cursor-default" asChild>
-                    <a href={item.url} >
+                    <Link to={item.url} onClick={item.onClick}>
                       <item.icon className="cursor-pointer" />
                       <span className="cursor-pointer">{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

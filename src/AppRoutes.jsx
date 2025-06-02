@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import AuthLayout from './pages/AuthLayout';
+import Profile from './pages/Profile';
 
 const AppRoutes = () => {
   return (
@@ -29,14 +30,15 @@ let router = createBrowserRouter([
     ],
   },
   {
-    path: "dashboard",
-    Component:  AuthLayout,
+   
+    element:  <AuthLayout/>,
     children: [
-      { index: true, Component:  Dashboard },
-      // { path: "login", Component: Login },
+      { index: true, path: 'dashboard', Component:  Dashboard },
+      { path: "profile", Component: Profile },
       // { path: "register", Component: Register }, 
     ],
   },
+
 ]);
 
 export default AppRoutes
