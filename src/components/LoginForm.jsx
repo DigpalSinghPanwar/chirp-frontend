@@ -15,6 +15,7 @@ const LoginForm = () => {
         .then((res) => {
             console.log(res)
             localStorage.setItem('auth_token', res.data.token)
+            localStorage.setItem('user_id', res.data.data.user._id)
            navigate('/dashboard')
         })
         .catch((err) => {

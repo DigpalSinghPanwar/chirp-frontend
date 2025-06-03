@@ -27,7 +27,7 @@ const RulesInfo = () => {
         <ul className='ml-8  list-disc text-gray-200'>
           <li>See your analytics</li>
           <li>What to expect</li>
-          <li>How to improve</li>
+          {/* <li>How to improve</li> */}
         </ul>
       </div>
 

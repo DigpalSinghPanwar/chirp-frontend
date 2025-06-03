@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import AuthLayout from './pages/AuthLayout';
 import Profile from './pages/Profile';
+import Analytics from './pages/Analytics';
 
 const AppRoutes = () => {
   return (
@@ -35,7 +36,7 @@ let router = createBrowserRouter([
     children: [
       { index: true, path: 'dashboard', Component:  Dashboard },
       { path: "profile", Component: Profile },
-      // { path: "register", Component: Register }, 
+      { path: "analytics", Component: Analytics },
     ],
   },
 

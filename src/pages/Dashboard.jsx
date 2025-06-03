@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import CreateTweet from '../components/CreateTweet';
 import ReadTweet from '../components/ReadTweet';
 import {axiosInstance} from '../api/axios';
+import Loader from '@/components/Loader';
 
 const Dashboard = () => {
   const [page, setPage] = useState(1);
@@ -74,7 +75,7 @@ const Dashboard = () => {
 {tweets?.map((tweet) => (
         <ReadTweet key={tweet._id} tweet={tweet} />
       ))}
-      {loading && <p className="text-amber-100">Loading more...</p>}
+      {loading &&  <div className='w-full h-36'> <Loader /> </div>}
       {!hasMore && <p className="text-white">No more tweets to show.</p>}
 </div>
 </div>
