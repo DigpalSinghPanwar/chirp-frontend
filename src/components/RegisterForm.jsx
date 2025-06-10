@@ -6,6 +6,7 @@ import { Button } from './ui/button'
 import { useForm } from 'react-hook-form'
 import { axiosLoginInstance } from '../api/axios'
 import { useNavigate } from 'react-router-dom'
+import reactToast from '../lib/reactToast'
 
 const RegisterForm = () => {
     const navigate = useNavigate()
@@ -13,11 +14,13 @@ const RegisterForm = () => {
     const handleRegisterSubmit = handleSubmit((data) => {
         axiosLoginInstance.post('users/signup', data)
         .then((res) => {
+          reactToast("Register successful", "success")
             console.log(res)
             localStorage.setItem('auth_token', res.data.token)
            navigate('/dashboard')
         })
         .catch((err) => {
+          reactToast("Something went wrong", "error")
             console.log(err)
         })
         console.log(data)

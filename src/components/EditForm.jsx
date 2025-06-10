@@ -6,6 +6,7 @@ import { Button } from './ui/button'
 import { useForm } from 'react-hook-form'
 import { axiosInstance } from '../api/axios'
 import { useNavigate } from 'react-router-dom'
+import reactToast from '../lib/reactToast'
 
 const EditForm = ({username,email,about,id,setOpen,onSuccess}) => {
     console.log(id)
@@ -15,11 +16,13 @@ const EditForm = ({username,email,about,id,setOpen,onSuccess}) => {
         console.log(data)
         axiosInstance.put(`/users/${id}`, data)
         .then((res) => {    
+          reactToast("User updated successfully", "success")
             console.log(res)
             setOpen(false)
             onSuccess?.()
         })
         .catch((err) => {
+          reactToast("Something went wrong", "error")
             console.log(err)
             setOpen(false)
         })

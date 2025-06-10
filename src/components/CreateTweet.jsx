@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useForm } from "react-hook-form"
 import {axiosInstance} from "../api/axios"
+import reactToast from "../lib/reactToast"
 
 const CreateTweet = ({setReloadTweet, setLoading}) => {
       const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -22,11 +23,13 @@ const CreateTweet = ({setReloadTweet, setLoading}) => {
       setLoading(true)
       axiosInstance.post('/tweet', data)
         .then((res) => {
+          reactToast("Tweet posted successfully", "success")
             reset()
             setReloadTweet(true)
             setLoading(false) 
         })
         .catch((err) => {
+          reactToast("Something went wrong", "error")
             setLoading(false)
             setReloadTweet(false)
         })

@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Link } from "react-router-dom"
+import reactToast from "../lib/reactToast"
 
 // Menu items.
 const items = [
@@ -45,7 +46,9 @@ const items = [
     url: "/",
     icon: PowerOff,
     onClick: () => {
+      reactToast("Logout successful", "success")
       localStorage.removeItem("auth_token");
+      localStorage.removeItem("user_id");
       window.location.href = "/";
     },
   },
