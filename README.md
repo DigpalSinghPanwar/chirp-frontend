@@ -1,12 +1,112 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🎨 Frontend `README.md`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🎯 Chirp Frontend
 
-## Expanding the ESLint configuration
+A React + Vite single-page application for a modern, Twitter-like experience:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Infinite scroll feed of tweets  
+- User authentication (signup, login)  
+- Create, update, delete tweets  
+- Like and comment on tweets  
+- Profile, analytics (pie chart), and messages screens  
+- Admin dashboard with user management  
+- Styled with Tailwind CSS & Framer Motion animations  
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js v20+  
+- Backend API running locally at `http://localhost:8000`
+- Backend repository - https://github.com/DigpalSinghPanwar/tweetapp
+
+### Setup
+
+1. **Clone and install**  
+   ```bash
+   git clone https://github.com/DigpalSinghPanwar/chirp-frontend.git
+   cd chirp-frontend
+   npm install
+    
+2. Configure environment variables
+     ```bash
+   cp .env.example .env
+   VITE_API_BASE_URL=http://localhost:8000/api/v1
+   # Edit .env file and add your API key
+   
+
+3. Run the app
+   ```bash
+   npm run dev
+   
+---
+
+🗂️ Project Structure
+
+src/
+├── api/              # Axios instance & API calls
+├── components/       # Reusable UI pieces (TweetCard, CommentList, etc.)
+├── pages/            # Route components (Home, Profile, Analytics, Messages)
+├── hooks/            # Custom hooks (useGet, useInfiniteScroll, etc.)
+├── context/          # React Context for auth & global state
+├── assets/           # Images, icons, SVGs
+└── App.jsx           # Routes & layout
+
+---
+
+📚 Key Libraries
+
+React Router for client-side routing
+
+Axios for API requests
+
+Tailwind CSS for utility-first styling
+
+Framer Motion for smooth animations
+
+React Hook Form for form handling
+
+Chart.js or react-chartjs-2 for analytics pie chart
+
+---
+
+🎨 UI Overview
+
+Landing Page: signup/login
+
+Dashboard Layout: Sidebar (nav), main content, Infinite scroll tweet feed, rules/info panel
+
+Profile: User details
+
+Analytics: Pie chart of tweets/likes/comments
+
+Messages: Chat list + conversation view
+
+---
+
+🔮 Future Work
+
+Add admin dashboard
+
+Integrate commenting UI/UX
+
+Build messages screen & backend integration
+
+Add dark mode toggle
+
+Improve accessibility (aria, keyboard nav)
+
+Add unit and integration tests
+
+---
+
+📄 License & Contact
+
+MIT License.
+Built by Digpal Singh Panwar.
+Feel free to connect on LinkedIn - https://www.linkedin.com/in/digpal-singh-panwar-875b551b0
