@@ -48,6 +48,7 @@ A React + Vite single-page application for a modern, Twitter-like experience:
 
 🗂️ Project Structure
 
+<pre> ```bash 
 src/
 ├── api/              # Axios instance & API calls
 ├── components/       # Reusable UI pieces (TweetCard, CommentList, etc.)
@@ -56,6 +57,7 @@ src/
 ├── context/          # React Context for auth & global state
 ├── assets/           # Images, icons, SVGs
 └── App.jsx           # Routes & layout
+``` </pre>
 
 ---
 
@@ -108,5 +110,7 @@ Add unit and integration tests
 📄 License & Contact
 
 MIT License.
+
 Built by Digpal Singh Panwar.
+
 Feel free to connect on LinkedIn - https://www.linkedin.com/in/digpal-singh-panwar-875b551b0
