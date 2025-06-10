@@ -48,7 +48,7 @@ A React + Vite single-page application for a modern, Twitter-like experience:
 
 🗂️ Project Structure
 
-<pre> ```bash 
+<pre> 
 src/
 ├── api/              # Axios instance & API calls
 ├── components/       # Reusable UI pieces (TweetCard, CommentList, etc.)
@@ -57,7 +57,7 @@ src/
 ├── context/          # React Context for auth & global state
 ├── assets/           # Images, icons, SVGs
 └── App.jsx           # Routes & layout
-``` </pre>
+</pre>
 
 ---
 
